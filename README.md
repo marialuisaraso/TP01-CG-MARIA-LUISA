@@ -1,7 +1,6 @@
 TRABALHO PRÁTICO 01 - COMPUTAÇÃO GRÁFICA - 2024/1
 
-ALUNA: MARIA LUÍSA TOMICH RASO
-PROFESSORA: ROSILANE MOTA
+ALUNA: MARIA LUÍSA TOMICH RASO /// PROFESSORA: ROSILANE MOTA
 
 DESCRIÇÃO:
 - Canvas de desenho feito utilizando a linguagem Python e sua biblioteca TKinter
