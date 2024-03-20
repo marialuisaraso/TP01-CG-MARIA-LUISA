@@ -12,3 +12,10 @@ COMO RODAR VIA TERMINAL:
 1) pip install tk
 2) python main.py OU python3 main.py
 
+MANUAL DE COMO UTILIZAR O SISTEMA: https://docs.google.com/document/d/17qNazD70wN-Y_n02XaHqlczB7YUC7CF7W_Tc1hyMEos/edit?usp=sharing
+
+EXPLICAÇÕES DOS CÓDIGOS: https://docs.google.com/document/d/1Ayzg7iU1yT9mp1DW9KgmjEaxIYTY2bIumcwKK_LPFqA/edit?usp=sharing
+
+
+
+
