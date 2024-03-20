@@ -16,6 +16,10 @@ MANUAL DE COMO UTILIZAR O SISTEMA: https://docs.google.com/document/d/17qNazD70w
 
 EXPLICAÇÕES DOS CÓDIGOS: https://docs.google.com/document/d/1Ayzg7iU1yT9mp1DW9KgmjEaxIYTY2bIumcwKK_LPFqA/edit?usp=sharing
 
+LINK DO VÍDEO DA APLICAÇÃO: https://youtu.be/bqT6vPVHB9Q
+
+
+
 
 
 
