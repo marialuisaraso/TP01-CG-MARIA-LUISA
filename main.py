@@ -61,8 +61,6 @@ def cohen(x1, y1, x2, y2):
     canvas.create_line(x1, y1, x2, y2, fill = 'red')
     canvas.grid(row = 0, column = 0)
 
-    # region = [x1, y1, x2, y2]
-
     code1 = computeCode(x1, y1)
     code2 = computeCode(x2, y2)
     accept = False
@@ -130,15 +128,13 @@ def cohen(x1, y1, x2, y2):
         canvas.grid(row = 0, column = 0)
   
     else: 
-        print("Linha rejeitada") 
+        print("Linha totalmente fora da janela") 
 
 
 
 ################################################### DDA E BRESENHAM #####################################################
-def dda(x1, y1, x2, y2):
-    __dda(x1, y1, x2, y2)
 
-def __dda(x1, y1, x2, y2):
+def dda(x1, y1, x2, y2):
     dx = x2 - x1
     dy = y2 - y1
     x_incr = 0
@@ -157,10 +153,8 @@ def __dda(x1, y1, x2, y2):
         y = y + y_incr
         __set_pixel(round(x), round(y))
 
-def bres(x1, y1, x2, y2):
-    __bres(x1, y1, x2, y2)
 
-def __bres(x1, y1, x2, y2):
+def bres(x1, y1, x2, y2):
     dx = x2 - x1
     dy = y2 - y1
     incr_x = 0
@@ -243,10 +237,20 @@ def desenhar_retangulo(event):
     else:
         canvas.create_rectangle(x_retangulo_inicial, y_retangulo_inicial, event.x, event.y, outline="YELLOW")
         # Coordenadas do ponto inicial e final do retangulo
-        pontoinicial_x_retangulo = int(x_retangulo_inicial)
-        pontoinicial_y_retangulo = int(y_retangulo_inicial)
-        pontofinal_x_retangulo = int(event.x)
-        pontofinal_y_retangulo = int(event.y)
+
+        if (x_retangulo_inicial > event.x):
+            pontoinicial_x_retangulo = int(x_retangulo_inicial)
+            pontofinal_x_retangulo = int(event.x)
+        else:
+            pontoinicial_x_retangulo = int(event.x)
+            pontoinicial_x_retangulo = int(x_retangulo_inicial)
+        
+        if(y_retangulo_inicial > event.y):
+            pontoinicial_y_retangulo = int(y_retangulo_inicial)
+            pontofinal_y_retangulo = int(event.y)
+        else:
+            pontoinicial_y_retangulo = int(event.y)
+            pontofinal_y_retangulo = int(y_retangulo_inicial)
 
         x_max = pontoinicial_x_retangulo
         y_max = pontoinicial_y_retangulo
@@ -292,11 +296,11 @@ def translation_button_canvas():
     y1 = inicial_y + translacao
     x2 = final_x + translacao
     y2 = final_y + translacao
-    canvas.create_line(x1, y1, x2, y2, fill="WHITE")
+    dda(x1, y1, x2, y2)
 
 def scale_button_canvas():
     escala = entrada_texto_escala.get()
-    escala = int(escala)
+    escala = float(escala)
     x1 = inicial_x * escala
     y1 = inicial_y * escala
     x2 = final_x * escala
@@ -382,13 +386,12 @@ canvas = tk.Canvas(root, width=700, height=800, bg="PURPLE")
 canvas.grid(row=0, column=0, padx=10, pady=10, rowspan=9)
 
 # Variáveis para armazenar as coordenadas dos pontos iniciais e finais usados ao longo do programa
-pontoinicial_x_retangulo, pontoinicial_y_retangulo = None, None
-pontofinal_x_retangulo, pontofinal_y_retangulo = None, None
+x_retangulo_inicial, y_retangulo_inicial = None, None
 x_inicial, y_inicial = None, None
 
 # Associar evento de clique com as funções de desenho
 canvas.bind("<Button-1>", desenhar_linha)
-canvas.bind("<ButtonPress-3>", desenhar_retangulo)
+canvas.bind("<Button-2>", desenhar_retangulo)
 
 texto_ao_lado_rotacao = tk.Label(root, text="GRAU DE ROTAÇÃO:")
 texto_ao_lado_rotacao.grid(row=1, column=1, padx=10, pady=10)
